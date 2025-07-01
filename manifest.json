@@ -1,0 +1,13 @@
+{
+    "domain": "babyschwimmen",
+    "name": "Babyschwimmen Nächster Termin",
+    "version": "1.0.0",
+    "documentation": "https://github.com/alexander-stolz/babyschwimmen-kinder-spiel-sport",
+    "requirements": [
+        "PyPDF2"
+    ],
+    "dependencies": [],
+    "codeowners": [
+        "@alexander-stolz"
+    ]
+}

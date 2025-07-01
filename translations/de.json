@@ -1,0 +1,14 @@
+{
+  "entity": {
+    "sensor": {
+      "babyschwimmen_next_date": {
+        "name": "Babyschwimmen Nächster Termin",
+        "state": {
+          "Fehler beim Laden der PDF": "Fehler beim Laden der PDF",
+          "Keine Termine gefunden": "Keine Termine gefunden",
+          "Keine zukünftigen Termine": "Keine zukünftigen Termine"
+        }
+      }
+    }
+  }
+}
