@@ -1,14 +1,31 @@
 {
-  "entity": {
-    "sensor": {
-      "babyschwimmen_next_date": {
-        "name": "Babyschwimmen Nächster Termin",
-        "state": {
-          "Fehler beim Laden der PDF": "Fehler beim Laden der PDF",
-          "Keine Termine gefunden": "Keine Termine gefunden",
-          "Keine zukünftigen Termine": "Keine zukünftigen Termine"
+    "config": {
+        "step": {
+            "user": {
+                "description": "Möchtest du den Babyschwimmen-Sensor einrichten?",
+                "title": "Babyschwimmen Nächster Termin"
+            }
+        },
+        "abort": {
+            "single_instance_allowed": "Es ist nur eine einzige Instanz erlaubt."
         }
-      }
+    },
+    "entity": {
+        "sensor": {
+            "babyschwimmen_next_date": {
+                "name": "Babyschwimmen Nächster Termin"
+            }
+        }
+    },
+    "state_attributes": {
+        "babyschwimmen_next_date": {
+            "status": {
+                "initializing": "Initialisierung",
+                "error_pdf_download": "Fehler beim Laden der PDF",
+                "no_dates_found": "Keine Termine gefunden",
+                "no_future_dates": "Keine zukünftigen Termine",
+                "ok": "OK"
+            }
+        }
     }
-  }
 }

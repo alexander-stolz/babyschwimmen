@@ -1,36 +1,59 @@
-# HA Sensor: Nächster Termin Babyschwimmen für kinder-spiel-sport.de
+# Babyschwimmen Nächster Termin - Home Assistant Sensor
 
-## Zusammenfassung
+This custom component for Home Assistant provides a sensor that displays the next appointment for the "Babyschwimmen" courses offered by [Kinder Spiel Sport](https://www.kinder-spiel-sport.de).
 
-Home Assistant Custom Component: Sensor, der automatisch den nächsten Termin für das Babyschwimmen von der Website [kinder-spiel-sport.de](https://www.kinder-spiel-sport.de) ausliest.
+## Features
 
-Liefert, neben `sensor.babyschwimmen_nachster_termin`, folgende Attribute:
-
-- `next_time`: Zeitspanne des nächsten Termins
-- `next_start_time` / `next_end_time`: Start- und Endzeit
-- `next_datetime` / `next_end_datetime`: Datum und Zeit als String
-- `next_date_info`: Zusatzinfo (z.B. Kursname)
-- `days_until`: Tage bis zum nächsten Termin
-- `all_upcoming_dates`: Liste der nächsten 10 Termine
+-   **Next Appointment Sensor**: Shows the date and time of the next swimming course as a timestamp.
+-   **Attributes**: Provides detailed information as attributes:
+    -   A human-readable description of the next appointment.
+    -   Start and end times.
+    -   Days until the next course.
+    -   A list of the next 10 upcoming appointments.
+-   **Automatic Updates**: The sensor polls the data from the official PDF document every 6 hours.
 
 ## Installation
 
-1. Kopiere das Verzeichnis `babyschwimmen` in den `custom_components`-Ordner:
+1.  **HACS (Recommended)**
+    -   Go to HACS > Integrations > Custom Repositories.
+    -   Add the URL of this repository (`https://github.com/alexander-stolz/babyschwimmen-kinder-spiel-sport`) as a new repository with the category "Integration".
+    -   Find the "Babyschwimmen Nächster Termin" integration and install it.
 
-   ```
-   <config>/custom_components/babyschwimmen/
-   ```
+2.  **Manual Installation**
+    -   Copy the `custom_components/babyschwimmen` directory to the `custom_components` directory in your Home Assistant configuration folder.
 
-2. Füge folgenden Eintrag zur `configuration.yaml` hinzu:
+## Configuration
+
+After installation, the integration can be configured via the Home Assistant user interface.
+
+1.  Go to **Settings** > **Devices & Services**.
+2.  Click the **+ Add Integration** button.
+3.  Search for **"Babyschwimmen Nächster Termin"** and select it.
+4.  Follow the on-screen instructions to complete the setup.
+
+The sensor will be added automatically.
+
+## Sensor
+
+The integration creates one sensor:
+
+-   `sensor.babyschwimmen_nachster_termin`
+
+    The state of the sensor is a timestamp (e.g., `2025-10-25T10:00:00+00:00`). You can use this in templates and automations.
+
+    The most important attributes are:
+    -   `description`: A human-readable string, e.g., "25.10.2024 von 10:00 - 10:45 Uhr".
+    -   `all_upcoming_dates`: A list of the next 10 appointments.
+
+## Example Lovelace Card
 
 ```yaml
-sensor:
-  - platform: babyschwimmen
+- type: entities
+  entities:
+    - entity: sensor.babyschwimmen_nachster_termin
+      name: Nächster Schwimmtermin
+      format: relative
+    - entity: sensor.babyschwimmen_nachster_termin
+      name: Wann
+      attribute: description
 ```
-
-3. Starte Home Assistant neu.
-
-
-## Lizenz
-
-MIT

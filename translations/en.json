@@ -1,0 +1,31 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "description": "Do you want to set up the Babyschwimmen sensor?",
+                "title": "Babyschwimmen Next Appointment"
+            }
+        },
+        "abort": {
+            "single_instance_allowed": "Only a single instance is allowed."
+        }
+    },
+    "entity": {
+        "sensor": {
+            "babyschwimmen_next_date": {
+                "name": "Babyschwimmen Next Appointment"
+            }
+        }
+    },
+    "state_attributes": {
+        "babyschwimmen_next_date": {
+            "status": {
+                "initializing": "Initializing",
+                "error_pdf_download": "Error downloading PDF",
+                "no_dates_found": "No appointments found",
+                "no_future_dates": "No future appointments",
+                "ok": "OK"
+            }
+        }
+    }
+}
